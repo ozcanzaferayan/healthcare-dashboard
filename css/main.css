@@ -8,7 +8,7 @@ body {
   overflow-x: hidden;
   margin: 0;
   font-family: "Open Sans", Helvetica, sans-serif;
-  color: #fff; }
+  color: #0c0a3d; }
 
 input {
   font-family: "Open Sans", Helvetica, sans-serif; }
@@ -29,27 +29,207 @@ input:focus {
   outline: none; }
 
 a {
-  text-decoration: none; }
+  text-decoration: none;
+  color: #bbbbca; }
 
 .wrapper {
   display: grid;
   height: 100vh;
-  grid-template-rows: 4rem 1fr 4rem;
-  grid-template-columns: 20rem 1fr;
-  grid-template-areas: "header header" "nav main" "footer footer";
+  grid-template-rows: 7.5rem 1fr;
+  grid-template-columns: 6.5rem 1fr;
+  grid-template-areas: "aside header" "aside main";
   flex-wrap: wrap; }
-  .wrapper > * {
-    border: 1px solid #000; }
 
 .header {
-  grid-area: header; }
+  grid-area: header;
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  align-items: center;
+  padding: 1rem 3rem; }
+  .header .btn-appointment {
+    padding: 1rem 1.5rem;
+    border-radius: 0.5rem;
+    height: fit-content;
+    color: #fff;
+    background: #9395ed;
+    background: linear-gradient(90deg, #9395ed 0%, #6c6de3 100%);
+    font-weight: 600; }
+  .header .profile {
+    justify-self: end;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 1rem; }
+    .header .profile .image {
+      justify-self: end; }
+      .header .profile .image img {
+        width: 4rem;
+        height: 4rem;
+        border-radius: 4rem; }
+      .header .profile .image .notification {
+        position: absolute;
+        width: 1.25rem;
+        height: 1.25rem;
+        margin-top: -1.7rem;
+        margin-left: 3rem;
+        background-color: #ff7d7d;
+        border-radius: 1.25rem;
+        box-shadow: 0px 0px 10px 0px #ff7d7d; }
+    .header .profile select {
+      height: fit-content;
+      border: none;
+      background: none;
+      font-size: 1rem;
+      font-weight: 600;
+      font-family: "Open Sans", Helvetica, sans-serif; }
 
 .aside {
-  grid-area: nav; }
+  grid-area: aside;
+  display: grid;
+  gap: 1.5rem;
+  padding: 1rem;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #bbbbca;
+  background-color: #fcfdfd; }
+  .aside ul {
+    display: grid;
+    grid-template-rows: repeat(8, min-content);
+    gap: 3rem;
+    margin-top: 1.5rem; }
+    .aside ul li {
+      display: grid;
+      place-items: center;
+      padding: 0.5rem 0.75rem; }
+      .aside ul li.active {
+        background-color: #fff;
+        -webkit-box-shadow: 0px 0px 33px -10px rgba(126, 127, 232, 0.5);
+        -moz-box-shadow: 0px 0px 33px -10px rgba(126, 127, 232, 0.5);
+        box-shadow: 0px 0px 33px -10px rgba(126, 127, 232, 0.5);
+        border-radius: 0.75rem; }
+        .aside ul li.active a {
+          color: #7e7fe8; }
+      .aside ul li.logo {
+        padding: 0.75rem 0.3rem;
+        background-color: #7e7fe8;
+        display: grid;
+        place-items: center;
+        border-radius: 0.5rem; }
+        .aside ul li.logo a {
+          color: #fff;
+          text-align: center;
+          font-size: 1.25rem; }
 
 .main {
+  padding: 3rem;
   grid-area: main;
-  padding: 1rem; }
+  background-color: #edf1fb;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 2rem; }
+  .main .top {
+    display: grid;
+    grid-template-columns: 5.2fr 8.4fr;
+    gap: 2rem; }
+  .main .bottom {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 4.2fr 3.8fr 5.2fr; }
+  .main .card {
+    background-color: #fff;
+    border-radius: 0.3rem;
+    padding: 2rem; }
+    .main .card .card-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1.5rem; }
+      .main .card .card-header .right {
+        color: #bbbbca; }
+      .main .card .card-header h1 {
+        display: inline-block;
+        margin: 0;
+        font-size: 1.25rem; }
+      .main .card .card-header .header-container {
+        display: grid;
+        grid-template-columns: max-content max-content;
+        gap: 1rem;
+        align-items: end; }
+        .main .card .card-header .header-container span {
+          color: #bbbbca;
+          position: absolute;
+          margin-left: 9rem;
+          margin-top: .3rem; }
+      .main .card .card-header select {
+        height: fit-content;
+        border: none;
+        background: none;
+        font-size: 1rem;
+        font-weight: 600;
+        font-family: "Open Sans", Helvetica, sans-serif; }
+    .main .card .card-body {
+      display: grid;
+      gap: 2rem; }
+    .main .card .appointment {
+      display: grid;
+      grid-template-columns: min-content max-content 1fr min-content min-content;
+      grid-template-rows: repeat(3, min-content);
+      grid-template-areas: "profile name name check times" "profile title title check times" "profile date time check times";
+      column-gap: 1.5rem;
+      row-gap: 0; }
+      .main .card .appointment .image {
+        grid-area: profile;
+        width: 4rem;
+        height: 4rem;
+        border-radius: 4rem;
+        box-shadow: 5px 5px 22px 0px rgba(116, 204, 214, 0.5); }
+        .main .card .appointment .image.gray {
+          box-shadow: 5px 5px 22px 0px #c7c5d2; }
+        .main .card .appointment .image.red {
+          box-shadow: 5px 5px 22px 0px rgba(193, 68, 84, 0.5); }
+      .main .card .appointment .name {
+        grid-area: name;
+        font-weight: 600; }
+      .main .card .appointment .title {
+        grid-area: title;
+        font-size: 0.8rem;
+        color: #9695af; }
+      .main .card .appointment .date {
+        grid-area: date;
+        font-size: 0.8rem; }
+        .main .card .appointment .date i {
+          color: #758dff; }
+      .main .card .appointment .time {
+        grid-area: time;
+        font-size: 0.8rem; }
+        .main .card .appointment .time i {
+          color: #758dff; }
+      .main .card .appointment .check {
+        grid-area: check;
+        font-size: 2rem;
+        align-self: center;
+        color: #758dff; }
+      .main .card .appointment .times {
+        grid-area: times;
+        font-size: 2rem;
+        align-self: center;
+        color: #ff7d7d; }
+    .main .card .chart-container {
+      height: 17rem; }
+    .main .card .news-list .news {
+      display: grid;
+      grid-template-columns: 1fr min-content;
+      grid-template-areas: "title arrow" "subtitle arrow"; }
+      .main .card .news-list .news .title {
+        grid-area: title; }
+      .main .card .news-list .news .subtitle {
+        grid-area: subtitle; }
+      .main .card .news-list .news .fa-caret-right {
+        grid-area: arrow; }
+      .main .card .news-list .news hr {
+        width: 100%;
+        border: none;
+        background-color: #bbbbca;
+        height: 1px; }
 
 .footer {
   grid-area: footer; }

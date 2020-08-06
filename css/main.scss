@@ -12,6 +12,9 @@ $spacing-xxs: .5rem;
 $spacing-xxxs: .3rem;
 $spacing-xxxxs: .1rem;
 // Fonts
+$font-xxxl:2.5rem;
+$font-xxl:2rem;
+$font-xl:1.5rem;
 $font-l:1.25rem;
 $font: 1rem;
 $font-s: .9rem;
@@ -19,18 +22,16 @@ $font-xs: .8rem;
 $font-xxs: .75rem;
 $font-xxxs: .7rem;
 // Colors
-$bg: #35346c;
-$bg-100: #2c2b5e;
+$bg: #fcfdfd;
+$bg-100: #edf1fb;
 $bg-200: #26254f;
-$primary: #745ff8;
-$text: #fff;
-$text-100: #d6d5f9;
-$text-200: #8f8ebb;
-$text-300: #5e5d85;
-$green: #99e47f;
-$blue: #53acff;
-$pink: #ff7d7d;
-$yellow: #f6cb3e;
+$primary: #7e7fe8;
+$text: #0c0a3d;
+$text-1: #fff;
+$success: #99e47f;
+$danger: #ff7d7d;
+$info: #758dff;
+$gray: #bbbbca;
 // Styles
 *,
 *::before,
@@ -70,31 +71,256 @@ input:focus {
 
 a {
     text-decoration: none;
+    color: $gray;
 }
 
 .wrapper {
     display: grid;
     height: 100vh;
-    grid-template-rows: 4rem 1fr 4rem;
-    grid-template-columns: 20rem 1fr;
-    grid-template-areas: "header header" "nav main" "footer footer";
+    grid-template-rows: 7.5rem 1fr;
+    grid-template-columns: 6.5rem 1fr;
+    grid-template-areas: "aside header" "aside main";
     flex-wrap: wrap;
-    >* {
-        border: 1px solid #000;
-    }
+    // >* {
+    //     border: 1px solid #000;
+    // }
 }
 
 .header {
     grid-area: header;
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    align-items: center;
+    padding: $spacing $spacing-xxxl;
+    .btn-appointment {
+        padding: $spacing $spacing-l;
+        border-radius: $spacing-xxs;
+        height: fit-content;
+        color: $text-1;
+        background: rgb(147, 149, 237);
+        background: linear-gradient(90deg, rgba(147, 149, 237, 1) 0%, #6c6de3 100%);
+        font-weight: 600;
+    }
+    .profile {
+        justify-self: end;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap: $spacing;
+        .image {
+            justify-self: end;
+            img {
+                width: 4rem;
+                height: 4rem;
+                border-radius: 4rem;
+            }
+            .notification {
+                $size: 1.25rem;
+                position: absolute;
+                width: $size;
+                height: $size;
+                margin-top: -1.7rem;
+                margin-left: 3rem;
+                background-color: $danger;
+                border-radius: $size;
+                box-shadow: 0px 0px 10px 0px rgba(255, 125, 125, 1);
+            }
+        }
+        select {
+            height: fit-content;
+            border: none;
+            background: none;
+            font-size: $font;
+            font-weight: 600;
+            font-family: $font-stack;
+        }
+    }
 }
 
 .aside {
-    grid-area: nav;
+    grid-area: aside;
+    display: grid;
+    gap: $spacing-l;
+    padding: $spacing;
+    justify-content: center;
+    font-size: $font-xl;
+    color: $gray;
+    background-color: $bg;
+    ul {
+        display: grid;
+        grid-template-rows: repeat(8, min-content);
+        gap: 3rem;
+        margin-top: $spacing-l;
+        li {
+            display: grid;
+            place-items: center;
+            padding: $spacing-xxs $spacing-xs;
+            &.active {
+                background-color: $text-1;
+                -webkit-box-shadow: 0px 0px 33px -10px rgba(126, 127, 232, .5);
+                -moz-box-shadow: 0px 0px 33px -10px rgba(126, 127, 232, .5);
+                box-shadow: 0px 0px 33px -10px rgba(126, 127, 232, .5);
+                border-radius: $spacing-xs;
+                a {
+                    color: $primary;
+                }
+            }
+            &.logo {
+                padding: $spacing-xs $spacing-xxxs;
+                background-color: $primary;
+                display: grid;
+                place-items: center;
+                border-radius: $spacing-xxs;
+                a {
+                    color: $text-1;
+                    text-align: center;
+                    font-size: $font-l;
+                }
+            }
+        }
+    }
 }
 
 .main {
+    padding: $spacing-xxxl;
     grid-area: main;
-    padding: $spacing;
+    background-color: $bg-100;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: $spacing-xl;
+    .top {
+        display: grid;
+        grid-template-columns: 5.2fr 8.4fr;
+        gap: $spacing-xl;
+    }
+    .bottom {
+        display: grid;
+        gap: $spacing-xl;
+        grid-template-columns: 4.2fr 3.8fr 5.2fr;
+    }
+    .card {
+        background-color: $text-1;
+        border-radius: $spacing-xxxs;
+        padding: $spacing-xl;
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: $spacing-l;
+            .right {
+                color: $gray;
+            }
+            h1 {
+                display: inline-block;
+                margin: 0;
+                font-size: $font-l;
+            }
+            .header-container {
+                display: grid;
+                grid-template-columns: max-content max-content;
+                gap: $spacing;
+                align-items: end;
+                span {
+                    color: $gray;
+                    position: absolute;
+                    margin-left: 9rem;
+                    margin-top: .3rem;
+                }
+            }
+            select {
+                height: fit-content;
+                border: none;
+                background: none;
+                font-size: $font;
+                font-weight: 600;
+                font-family: $font-stack;
+            }
+        }
+        .card-body {
+            display: grid;
+            gap: $spacing-xl;
+        }
+        .appointment {
+            display: grid;
+            grid-template-columns: min-content max-content 1fr min-content min-content;
+            grid-template-rows: repeat(3, min-content);
+            grid-template-areas: "profile name name check times" "profile title title check times" "profile date time check times";
+            column-gap: $spacing-l;
+            row-gap: 0;
+            .image {
+                grid-area: profile;
+                width: 4rem;
+                height: 4rem;
+                border-radius: 4rem;
+                box-shadow: 5px 5px 22px 0px rgba(116, 204, 214, .5);
+                &.gray {
+                    box-shadow: 5px 5px 22px 0px rgba(199, 197, 210, 1);
+                }
+                &.red {
+                    box-shadow: 5px 5px 22px 0px rgba(193, 68, 84, .5);
+                }
+            }
+            .name {
+                grid-area: name;
+                font-weight: 600;
+            }
+            .title {
+                grid-area: title;
+                font-size: $font-xs;
+                color: #9695af;
+            }
+            .date {
+                grid-area: date;
+                font-size: $font-xs;
+                i {
+                    color: $info;
+                }
+            }
+            .time {
+                grid-area: time;
+                font-size: $font-xs;
+                i {
+                    color: $info;
+                }
+            }
+            .check {
+                grid-area: check;
+                font-size: $font-xxl;
+                align-self: center;
+                color: $info;
+            }
+            .times {
+                grid-area: times;
+                font-size: $font-xxl;
+                align-self: center;
+                color: $danger;
+            }
+        }
+        .chart-container {
+            height: 17rem;
+        }
+        .news-list {
+            .news {
+                display: grid;
+                grid-template-columns: 1fr min-content;
+                grid-template-areas: "title arrow" "subtitle arrow";
+                .title {
+                    grid-area: title;
+                }
+                .subtitle {
+                    grid-area: subtitle;
+                }
+                .fa-caret-right {
+                    grid-area: arrow;
+                }
+                hr {
+                    width: 100%;
+                    border: none;
+                    background-color: $gray;
+                    height: 1px;
+                }
+            }
+        }
+    }
 }
 
 .footer {

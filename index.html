@@ -56,19 +56,153 @@
     <meta name="msapplication-config" content="img/favicon/browserconfig.xml">
     <link rel="yandex-tableau-widget" href="img/favicon/yandex-browser-manifest.json">
     <!-- #endregion -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/main.css">
 </head>
 
 <body>
     <div class="wrapper">
-        <header class="header"></header>
-        <aside class="aside"></aside>
-        <main class="main"></main>
-        <footer class="footer"></footer>
+        <header class="header">
+            <a href="#" class="btn-appointment">Make an appointment</a>
+            <div class="profile">
+                <div class="image">
+                    <img src="https://i.pravatar.cc/150?img=26" />
+                    <div class="notification"></div>
+                </div>
+
+                <select>
+                    <option value="Maria waters">Maria Waters</option>
+                </select>
+            </div>
+        </header>
+        <aside class="aside">
+            <ul>
+                <li class="logo"><a href="#"><i class="fa fa-plus" aria-hidden="true"></i></a></li>
+                <li class="active">
+                    <a href="#"><i class="fas fa-columns"></i></a>
+                </li>
+                <li><a href="#"><i class="fa fa-folder" aria-hidden="true"></i></a></li>
+                <li><a href="#"><i class="fas fa-chart-area    "></i></a></li>
+                <li><a href="#"><i class="fas fa-pills    "></i></a></li>
+                <li><a href="#"><i class="fas fa-calendar-check    "></i></a></li>
+                <li><a href="#"><i class="fas fa-file-invoice-dollar    "></i></a></li>
+                <li><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i>
+                    <!-- <span class="count">8</span> -->
+                </a></li>
+            </ul>
+        </aside>
+        <main class="main">
+            <div class="top">
+                <div class="upcoming-appointments card">
+                    <div class="card-header">
+                        <h1>Upcoming appointments</h1>
+                        <a href="#"><i class="fa fa-ellipsis-h right" aria-hidden="true"></i></a>
+                    </div>
+                    <div class="card-body">
+                        <div class="appointment">
+                            <img class="image" src="https://i.pravatar.cc/150?img=45" />
+                            <span class="name">dr Anthony Wagner</span>
+                            <span class="title">dermatologist</span>
+                            <span class="date"><i class="fa fa-calendar" aria-hidden="true"></i> 22/07/2018</span>
+                            <span class="time"><i class="fas fa-clock"></i> 2:30 PM</span>
+                            <a href="#" class="check"><i class="far fa-check-circle" aria-hidden="true"></i></a>
+                            <a href="#" class="times"><i class="far fa-times-circle" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="appointment">
+                            <img class="image gray" src="https://i.pravatar.cc/150?img=1" />
+                            <span class="name">dr Caroline Fields</span>
+                            <span class="title">psycologist</span>
+                            <span class="date"><i class="fa fa-calendar" aria-hidden="true"></i> 22/07/2018</span>
+                            <span class="time"><i class="fas fa-clock"></i> 2:30 PM</span>
+                            <a href="#" class="check"><i class="fas fa-check-circle" aria-hidden="true"></i></a>
+                            <a href="#" class="times"><i class="far fa-times-circle" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="appointment">
+                            <img class="image red" src="https://i.pravatar.cc/150?img=30" />
+                            <span class="name">dr Natalie Smith</span>
+                            <span class="title">dentist</span>
+                            <span class="date"><i class="fa fa-calendar" aria-hidden="true"></i> 22/07/2018</span>
+                            <span class="time"><i class="fas fa-clock"></i> 2:30 PM</span>
+                            <a href="#" class="check"><i class="far fa-check-circle" aria-hidden="true"></i></a>
+                            <a href="#" class="times"><i class="far fa-times-circle" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="recent-results card">
+                    <div class="card-header">
+                        <div class="header-container">
+                            <h1>Recent results </h1>
+                            <span>Glucose</span>
+                        </div>
+                        <select>
+                            <option value="May 2018">May 2018</option>
+                        </select>
+                        <a href="#"><i class="fa fa-ellipsis-h right" aria-hidden="true"></i></a>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="chart-container">
+                            <canvas id="recentResultsChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom">
+                <div class="news card">
+                    <div class="card-header">
+                        <h1>News</h1>
+                        <a href="#"><i class="fa fa-ellipsis-h right" aria-hidden="true"></i></a>
+                    </div>
+                    <div class="card-body">
+                        <ul class="news-list">
+                            <li>
+                                <a href="#" class="news">
+                                    <span class="title">10% off for dermatlogist conslutation</span>
+                                    <span class="subtitle">Save money for first visit</span>
+                                    <i class="fas fa-caret-right"></i>
+                                    <hr>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="news">
+                                    <span class="title">Free visit to the cardiologist on May 2-6</span>
+                                    <span class="subtitle">Take care Of your health, do medical examination</span>
+                                    <i class="fas fa-caret-right"></i>
+                                    <hr>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="news">
+                                    <span class="title">50% discount on allergy tests</span>
+                                    <span class="subtitle"> Spring is coming, take control Of allergy</span>
+                                    <i class="fas fa-caret-right"></i>
+                                    <hr>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="current-prescription-container card">
+
+                    <div class="card-header">
+                        <h1>Current prescription </h1>
+                        <a href="#"><i class="fa fa-ellipsis-h right" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+                <div class="notifications card">
+                    <div class="card-header">
+                        <h1>Notifications </h1>
+                        <a href="#"><i class="fa fa-ellipsis-h right" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </div>
+        </main>
     </div>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chartjs-plugin-deferred@1.0.1"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chartjs-plugin-style@0.5.0"></script>
     <script src="./js/main.js"></script>
 </body>
 
