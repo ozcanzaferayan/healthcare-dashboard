@@ -78,16 +78,14 @@
         </header>
         <aside class="aside">
             <ul>
-                <li class="logo"><a href="#"><i class="fa fa-plus" aria-hidden="true"></i></a></li>
-                <li class="active">
-                    <a href="#"><i class="fas fa-columns"></i></a>
-                </li>
+                <li class="logo hide"><a href="#"><i class="fa fa-plus" aria-hidden="true"></i></a></li>
+                <li class="active"><a href="#"><i class="fas fa-columns"></i></a></li>
                 <li><a href="#"><i class="fa fa-folder" aria-hidden="true"></i></a></li>
                 <li><a href="#"><i class="fas fa-chart-area    "></i></a></li>
                 <li><a href="#"><i class="fas fa-pills    "></i></a></li>
-                <li><a href="#"><i class="fas fa-calendar-check    "></i></a></li>
-                <li><a href="#"><i class="fas fa-file-invoice-dollar    "></i></a></li>
-                <li><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i>
+                <li class="hide"><a href="#"><i class="fas fa-calendar-check    "></i></a></li>
+                <li class="hide"><a href="#"><i class="fas fa-file-invoice-dollar    "></i></a></li>
+                <li class="hide"><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i>
                     <!-- <span class="count">8</span> -->
                 </a></li>
             </ul>
@@ -180,21 +178,87 @@
                                     <hr>
                                 </a>
                             </li>
-
+                            <li class="more"><a href="#">More...</a></li>
                         </ul>
+
                     </div>
                 </div>
-                <div class="current-prescription-container card">
-
-                    <div class="card-header">
-                        <h1>Current prescription </h1>
-                        <a href="#"><i class="fa fa-ellipsis-h right" aria-hidden="true"></i></a>
+                <div class="current-prescription-container">
+                    <div class="current-prescription card">
+                        <div class="card-header">
+                            <h1>Current prescription </h1>
+                            <a href="#"><i class="fa fa-ellipsis-h right" aria-hidden="true"></i></a>
+                        </div>
+                        <ul>
+                            <li>
+                                <a href="#" class="prescription-item">
+                                    <div class="dot gray"></div>
+                                    <span class="title">Vitamin D</span>
+                                    <span class="description">5mg - 2x per day</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="prescription-item">
+                                    <div class="dot violet"></div>
+                                    <span class="title">Cetirizine</span>
+                                    <span class="description">10mg - once per day at the morning</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card alert">
+                        <div class="card-header">
+                            <h1>Alert</h1>
+                            <a href="#"><i class="fa fa-ellipsis-h right" aria-hidden="true"></i></a>
+                        </div>
+                        <span>Air pollution: <b>230%</b> of norm</span>
                     </div>
                 </div>
                 <div class="notifications card">
                     <div class="card-header">
                         <h1>Notifications </h1>
                         <a href="#"><i class="fa fa-ellipsis-h right" aria-hidden="true"></i></a>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>
+                                <a href="#" class="notification">
+                                    <div class="dot green"></div>
+                                    <span class="title">You confirmed visit to dermatologist</span>
+                                    <span class="date">2 days ago</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="notification">
+                                    <div class="dot green"></div>
+                                    <span class="title">Your results are available to download</span>
+                                    <span class="date">3 days ago</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="notification">
+                                    <div class="dot green"></div>
+                                    <span class="title">Dr. John Smith cancelled your visit</span>
+                                    <span class="date">3 days ago</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="notification">
+                                    <div class="dot green"></div>
+                                    <span class="title">Dr. Ann Doe changed date of your visit</span>
+                                    <span class="date">3 days ago</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="notification">
+                                    <div class="dot green"></div>
+                                    <span class="title">You changed date of appointment</span>
+                                    <span class="date">5 days ago</span>
+                                </a>
+                            </li>
+                            <li class="more"><a href="#">More...</a></li>
+                        </ul>
+
                     </div>
                 </div>
             </div>

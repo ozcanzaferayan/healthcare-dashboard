@@ -43,7 +43,7 @@ var options = {
         displayColors: false,
         callbacks: {
             label: function(tooltipItems, data) {
-                return "98.5";
+                return "10.5";
             }
         },
         bevelWidth: 3,

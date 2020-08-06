@@ -3,6 +3,9 @@
 *::after {
   box-sizing: border-box; }
 
+html {
+  font-size: 12px; }
+
 body {
   height: 100%;
   overflow-x: hidden;
@@ -39,6 +42,10 @@ a {
   grid-template-columns: 6.5rem 1fr;
   grid-template-areas: "aside header" "aside main";
   flex-wrap: wrap; }
+  @media screen and (max-width: 400px) {
+    .wrapper {
+      grid-template-columns: initial;
+      grid-template-rows: initial; } }
 
 .header {
   grid-area: header;
@@ -46,6 +53,10 @@ a {
   grid-template-columns: max-content 1fr;
   align-items: center;
   padding: 1rem 3rem; }
+  @media screen and (max-width: 400px) {
+    .header {
+      gap: 0.75rem;
+      padding: 0.75rem; } }
   .header .btn-appointment {
     padding: 1rem 1.5rem;
     border-radius: 0.5rem;
@@ -63,9 +74,9 @@ a {
     .header .profile .image {
       justify-self: end; }
       .header .profile .image img {
-        width: 4rem;
-        height: 4rem;
-        border-radius: 4rem; }
+        width: 3rem;
+        height: 3rem;
+        border-radius: 3rem; }
       .header .profile .image .notification {
         position: absolute;
         width: 1.25rem;
@@ -75,6 +86,10 @@ a {
         background-color: #ff7d7d;
         border-radius: 1.25rem;
         box-shadow: 0px 0px 10px 0px #ff7d7d; }
+        @media screen and (max-width: 400px) {
+          .header .profile .image .notification {
+            margin-top: -1.5rem;
+            margin-left: 2.3rem; } }
     .header .profile select {
       height: fit-content;
       border: none;
@@ -92,11 +107,26 @@ a {
   font-size: 1.5rem;
   color: #bbbbca;
   background-color: #fcfdfd; }
+  @media screen and (max-width: 400px) {
+    .aside {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      border-top: 1px solid #f1f1f1;
+      justify-content: initial; } }
   .aside ul {
     display: grid;
     grid-template-rows: repeat(8, min-content);
     gap: 3rem;
     margin-top: 1.5rem; }
+    @media screen and (max-width: 400px) {
+      .aside ul {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: none;
+        margin-top: 0; }
+        .aside ul .hide,
+        .aside ul .logo.hide {
+          display: none; } }
     .aside ul li {
       display: grid;
       place-items: center;
@@ -127,14 +157,33 @@ a {
   display: grid;
   grid-template-rows: 1fr 1fr;
   gap: 2rem; }
+  @media screen and (max-width: 1148px) {
+    .main {
+      grid-template-rows: initial; } }
+  @media screen and (max-width: 400px) {
+    .main {
+      padding: 1rem 0 6rem 0;
+      gap: 1rem; } }
   .main .top {
     display: grid;
-    grid-template-columns: 5.2fr 8.4fr;
+    grid-template-columns: 5fr 8fr;
     gap: 2rem; }
+    @media screen and (max-width: 1148px) {
+      .main .top {
+        grid-template-columns: initial; } }
+    @media screen and (max-width: 400px) {
+      .main .top {
+        gap: 1rem; } }
   .main .bottom {
     display: grid;
     gap: 2rem;
     grid-template-columns: 4.2fr 3.8fr 5.2fr; }
+    @media screen and (max-width: 1148px) {
+      .main .bottom {
+        grid-template-columns: initial; } }
+    @media screen and (max-width: 400px) {
+      .main .bottom {
+        gap: 1rem; } }
   .main .card {
     background-color: #fff;
     border-radius: 0.3rem;
@@ -215,21 +264,99 @@ a {
         color: #ff7d7d; }
     .main .card .chart-container {
       height: 17rem; }
+      @media screen and (max-width: 650px) {
+        .main .card .chart-container {
+          height: 10rem; } }
     .main .card .news-list .news {
       display: grid;
       grid-template-columns: 1fr min-content;
-      grid-template-areas: "title arrow" "subtitle arrow"; }
+      grid-template-areas: "title arrow" "subtitle arrow";
+      gap: 0.5rem; }
       .main .card .news-list .news .title {
-        grid-area: title; }
+        grid-area: title;
+        font-weight: 700;
+        color: #0c0a3d; }
       .main .card .news-list .news .subtitle {
-        grid-area: subtitle; }
+        grid-area: subtitle;
+        color: #9594ae; }
       .main .card .news-list .news .fa-caret-right {
-        grid-area: arrow; }
+        grid-area: arrow;
+        align-self: center; }
       .main .card .news-list .news hr {
         width: 100%;
         border: none;
         background-color: #bbbbca;
         height: 1px; }
+    .main .card .news-list .more {
+      text-align: center; }
+      .main .card .news-list .more a {
+        color: #7e7fe8;
+        font-weight: bold; }
+  .main .card.alert {
+    background: linear-gradient(90deg, #9395ed 0%, #6c6de3 100%);
+    color: #fff; }
+  .main .current-prescription-container {
+    display: grid;
+    grid-template-rows: 1fr max-content;
+    gap: 2rem; }
+    .main .current-prescription-container ul {
+      display: grid;
+      row-gap: 0.75rem; }
 
-.footer {
-  grid-area: footer; }
+.prescription-item {
+  display: grid;
+  grid-template-areas: "dot title" "dot description";
+  grid-template-columns: min-content 1fr;
+  column-gap: 1.5rem; }
+  .prescription-item .dot {
+    grid-area: dot;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 1.5rem;
+    align-self: center; }
+  .prescription-item .dot.gray {
+    background-color: #bccbf5;
+    box-shadow: 2px 2px 10px 0px #bccbf5; }
+  .prescription-item .dot.violet {
+    background-color: #7e7fe8;
+    box-shadow: 2px 2px 10px 0px #7e7fe8; }
+  .prescription-item .title {
+    grid-area: title;
+    color: #0c0a3d;
+    font-weight: 800; }
+  .prescription-item .description {
+    grid-area: description; }
+
+.notifications ul {
+  display: grid;
+  gap: 1.5rem; }
+
+.notifications .more {
+  text-align: center; }
+  .notifications .more a {
+    color: #7e7fe8;
+    font-weight: 600; }
+
+.notifications .notification {
+  display: grid;
+  grid-template-areas: "dot title date";
+  grid-template-columns: min-content 1fr max-content;
+  align-items: center;
+  gap: 1rem; }
+  .notifications .notification .dot {
+    grid-area: dot;
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 0.75rem; }
+    .notifications .notification .dot.green {
+      background-color: #16c08f; }
+    .notifications .notification .dot.red {
+      background-color: #ff7d7d; }
+    .notifications .notification .dot.blue {
+      background-color: #7e7fe8; }
+  .notifications .notification .title {
+    grid-area: title;
+    color: #0c0a3d;
+    font-weight: 600; }
+  .notifications .notification .date {
+    grid-area: date; }

@@ -1,6 +1,8 @@
 $font-stack: 'Open Sans',
 Helvetica,
 sans-serif;
+//Media
+$media-phone: 400px;
 // Sizes
 $spacing-xxxl: 3rem;
 $spacing-xxl: 2.5rem;
@@ -28,7 +30,8 @@ $bg-200: #26254f;
 $primary: #7e7fe8;
 $text: #0c0a3d;
 $text-1: #fff;
-$success: #99e47f;
+$text-2: #9594ae;
+$success: #16c08f;
 $danger: #ff7d7d;
 $info: #758dff;
 $gray: #bbbbca;
@@ -37,6 +40,10 @@ $gray: #bbbbca;
 *::before,
 *::after {
     box-sizing: border-box;
+}
+
+html {
+    font-size: 12px;
 }
 
 body {
@@ -81,6 +88,10 @@ a {
     grid-template-columns: 6.5rem 1fr;
     grid-template-areas: "aside header" "aside main";
     flex-wrap: wrap;
+    @media screen and (max-width: $media-phone) {
+        grid-template-columns: initial;
+        grid-template-rows: initial;
+    }
     // >* {
     //     border: 1px solid #000;
     // }
@@ -92,6 +103,10 @@ a {
     grid-template-columns: max-content 1fr;
     align-items: center;
     padding: $spacing $spacing-xxxl;
+    @media screen and (max-width: $media-phone) {
+        gap: $spacing-xs;
+        padding: $spacing-xs;
+    }
     .btn-appointment {
         padding: $spacing $spacing-l;
         border-radius: $spacing-xxs;
@@ -110,9 +125,13 @@ a {
         .image {
             justify-self: end;
             img {
-                width: 4rem;
-                height: 4rem;
-                border-radius: 4rem;
+                $size: 4rem;
+                @media screen and (max-width: $media-phone) {
+                    $size: 3rem;
+                }
+                width:$size;
+                height: $size;
+                border-radius: $size;
             }
             .notification {
                 $size: 1.25rem;
@@ -124,6 +143,11 @@ a {
                 background-color: $danger;
                 border-radius: $size;
                 box-shadow: 0px 0px 10px 0px rgba(255, 125, 125, 1);
+                @media screen and (max-width: $media-phone) {
+                    $size: .9rem;
+                    margin-top: -1.5rem;
+                    margin-left: 2.3rem;
+                }
             }
         }
         select {
@@ -146,11 +170,27 @@ a {
     font-size: $font-xl;
     color: $gray;
     background-color: $bg;
+    @media screen and (max-width: $media-phone) {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        border-top: 1px solid #f1f1f1;
+        justify-content: initial;
+    }
     ul {
         display: grid;
         grid-template-rows: repeat(8, min-content);
         gap: 3rem;
         margin-top: $spacing-l;
+        @media screen and (max-width: $media-phone) {
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: none;
+            margin-top: 0;
+            .hide,
+            .logo.hide {
+                display: none;
+            }
+        }
         li {
             display: grid;
             place-items: center;
@@ -188,15 +228,34 @@ a {
     display: grid;
     grid-template-rows: 1fr 1fr;
     gap: $spacing-xl;
+    @media screen and (max-width: 1148px) {
+        grid-template-rows: initial;
+    }
+    @media screen and (max-width: $media-phone) {
+        padding: $spacing 0 6rem 0;
+        gap: $spacing;
+    }
     .top {
         display: grid;
-        grid-template-columns: 5.2fr 8.4fr;
+        grid-template-columns: 5fr 8fr;
         gap: $spacing-xl;
+        @media screen and (max-width: 1148px) {
+            grid-template-columns: initial;
+        }
+        @media screen and (max-width: $media-phone) {
+            gap: $spacing;
+        }
     }
     .bottom {
         display: grid;
         gap: $spacing-xl;
         grid-template-columns: 4.2fr 3.8fr 5.2fr;
+        @media screen and (max-width: 1148px) {
+            grid-template-columns: initial;
+        }
+        @media screen and (max-width: $media-phone) {
+            gap: $spacing;
+        }
     }
     .card {
         background-color: $text-1;
@@ -297,20 +356,28 @@ a {
         }
         .chart-container {
             height: 17rem;
+            @media screen and (max-width: 650px) {
+                height: 10rem;
+            }
         }
         .news-list {
             .news {
                 display: grid;
                 grid-template-columns: 1fr min-content;
                 grid-template-areas: "title arrow" "subtitle arrow";
+                gap: $spacing-xxs;
                 .title {
                     grid-area: title;
+                    font-weight: 700;
+                    color: $text;
                 }
                 .subtitle {
                     grid-area: subtitle;
+                    color: $text-2
                 }
                 .fa-caret-right {
                     grid-area: arrow;
+                    align-self: center;
                 }
                 hr {
                     width: 100%;
@@ -319,10 +386,103 @@ a {
                     height: 1px;
                 }
             }
+            .more {
+                text-align: center;
+                a {
+                    color: $primary;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+    .card.alert {
+        background: linear-gradient(90deg, rgba(147, 149, 237, 1) 0%, #6c6de3 100%);
+        color: $text-1;
+    }
+    .current-prescription-container {
+        display: grid;
+        grid-template-rows: 1fr max-content;
+        gap: $spacing-xl;
+        ul {
+            display: grid;
+            row-gap: $spacing-xs;
         }
     }
 }
 
-.footer {
-    grid-area: footer;
+.prescription-item {
+    display: grid;
+    grid-template-areas: "dot title" "dot description";
+    grid-template-columns: min-content 1fr;
+    column-gap: $spacing-l;
+    .dot {
+        $size: 1.5rem;
+        grid-area: dot;
+        width: $size;
+        height: $size;
+        border-radius: $size;
+        align-self: center;
+    }
+    .dot.gray {
+        background-color: #bccbf5;
+        box-shadow: 2px 2px 10px 0px #bccbf5;
+    }
+    .dot.violet {
+        background-color: $primary;
+        box-shadow: 2px 2px 10px 0px $primary;
+    }
+    .title {
+        grid-area: title;
+        color: $text;
+        font-weight: 800;
+    }
+    .description {
+        grid-area: description;
+    }
+}
+
+.notifications ul {
+    display: grid;
+    gap: $spacing-l;
+}
+
+.notifications {
+    .more {
+        text-align: center;
+        a {
+            color: $primary;
+            font-weight: 600;
+        }
+    }
+    .notification {
+        display: grid;
+        grid-template-areas: "dot title date";
+        grid-template-columns: min-content 1fr max-content;
+        align-items: center;
+        gap: $spacing;
+        .dot {
+            grid-area: dot;
+            $size: $spacing-xs;
+            width: $size;
+            height: $size;
+            border-radius: $size;
+            &.green {
+                background-color: $success;
+            }
+            &.red {
+                background-color: $danger;
+            }
+            &.blue {
+                background-color: $primary;
+            }
+        }
+        .title {
+            grid-area: title;
+            color: $text;
+            font-weight: 600;
+        }
+        .date {
+            grid-area: date;
+        }
+    }
 }

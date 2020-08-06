@@ -1,9 +1,9 @@
-# CSS Grid template
+# Healthcare dashboard UI
 
 ## Installation
 
 ```bash
-npm install
+yarn
 ```
 
 ### To run
@@ -34,22 +34,14 @@ gulp lighthouse
 
 ## Other parts about project
 
-Fitness admin panel CSS Grid implementation based on https://dribbble.com/shots/insert_dribble_url_part_here
-
-### Figma file
-
-https://www.figma.com/file/TXMamME9NWdXJrrAYakNEO
-
-### Social media preview
-
-![Social media preview](https://raw.githubusercontent.com/ozcanzaferayan/css-grid-dashboard-template/master/art/social/social.png)
+Based on https://dribbble.com/shots/4667029-Healthcare-Dashboard
 
 ### Screenshots
 
 #### Desktop UI
 
-![Screenshot](https://raw.githubusercontent.com/ozcanzaferayan/css-grid-dashboard-template/master/art/screenshot/web.png)
+![Screenshot](https://raw.githubusercontent.com/ozcanzaferayan/healthcare-dashboard/master/art/screenshot/web.png)
 
 #### Mobile UI
 
-![Screenshot](https://raw.githubusercontent.com/ozcanzaferayan/css-grid-dashboard-template/master/art/screenshot/mobile.png)
+![Screenshot](https://raw.githubusercontent.com/ozcanzaferayan/healthcare-dashboard/master/art/screenshot/mobile.jpg)
