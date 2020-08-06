@@ -118,7 +118,7 @@ a {
     display: grid;
     grid-template-rows: repeat(8, min-content);
     gap: 3rem;
-    margin-top: 1.5rem; }
+    margin-top: 0.75rem; }
     @media screen and (max-width: 400px) {
       .aside ul {
         grid-template-columns: repeat(4, 1fr);
@@ -139,16 +139,12 @@ a {
         border-radius: 0.75rem; }
         .aside ul li.active a {
           color: #7e7fe8; }
-      .aside ul li.logo {
-        padding: 0.75rem 0.3rem;
-        background-color: #7e7fe8;
-        display: grid;
-        place-items: center;
-        border-radius: 0.5rem; }
-        .aside ul li.logo a {
-          color: #fff;
-          text-align: center;
-          font-size: 1.25rem; }
+      .aside ul li.logo img {
+        width: 3rem; }
+      .aside ul li.logo a {
+        color: #fff;
+        text-align: center;
+        font-size: 1.25rem; }
 
 .main {
   padding: 3rem;

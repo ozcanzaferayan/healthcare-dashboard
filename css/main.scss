@@ -181,7 +181,7 @@ a {
         display: grid;
         grid-template-rows: repeat(8, min-content);
         gap: 3rem;
-        margin-top: $spacing-l;
+        margin-top: $spacing-xs;
         @media screen and (max-width: $media-phone) {
             grid-template-columns: repeat(4, 1fr);
             grid-template-rows: none;
@@ -206,11 +206,9 @@ a {
                 }
             }
             &.logo {
-                padding: $spacing-xs $spacing-xxxs;
-                background-color: $primary;
-                display: grid;
-                place-items: center;
-                border-radius: $spacing-xxs;
+                img {
+                    width: 3rem;
+                }
                 a {
                     color: $text-1;
                     text-align: center;
