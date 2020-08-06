@@ -126,12 +126,12 @@ a {
             justify-self: end;
             img {
                 $size: 4rem;
+                width: $size;
+                height: $size;
+                border-radius: $size;
                 @media screen and (max-width: $media-phone) {
                     $size: 3rem;
                 }
-                width:$size;
-                height: $size;
-                border-radius: $size;
             }
             .notification {
                 $size: 1.25rem;
